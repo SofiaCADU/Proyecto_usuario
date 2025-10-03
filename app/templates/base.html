@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Mi Registro {% endblock %} </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css')}}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="/" class="logo">Mi app</a>
+                <ul>
+                    {% if 'user_id' in session %}
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/logout">Cerrar sesión</a></li>
+                    {% else  %}
+                    <li><a href="/login">Iniciar sesión</a></li>
+                    <li><a href="/registro">Registrarse</a></li>
+                    {% endif %}   
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories = True) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mi Aplicación Flask, Todos los derechos reservados a Sofía Cáceres</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js')}}">
+
+    </script>
+
+
+</body>
+</html>

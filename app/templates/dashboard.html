@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+    <div class="dashboard-section">
+        <h1>¡Bienvenido a tu Dashboard, {{ user_name }}!</h1>
+        <p>Aquí es donde podrás ver tu contenido 
+            personalizado y acceder a las funcionalidades de la aplicación.</p>
+        <a href="/logout" class="btn btn-secondary">Cerrar Sesión</a>
+    </div>
+{% endblock %}

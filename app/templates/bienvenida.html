@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Bienvenidos {% endblock %}
+
+{% block content %}
+    <div class="welcome-section">
+        <h1>¡Bienvenido a nuestra Aplicación!</h1>
+        <p>Por favor, regístrate o inicia sesión para continuar.</p>
+        <div class="auth_buttons">
+            <a href="/registro" class="btn btn_primary">Registrarse</a> <!-- es color azul -->
+            <a href="/login" class="btn btn_secondary">Iniciar sesión</a> <!-- es color ... -->
+        </div>
+    </div>
+
+{% endblock %}
